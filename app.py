@@ -37,6 +37,9 @@ preprocessor = ColumnTransformer(
         ("cat", cat_pipe, cat_cols_for_transform),
     ]
 )
+@app.get('/')
+def index():
+    return 'app teste'
 
 @app.route('/predict', methods=['POST'])
 def predict():
