@@ -19,8 +19,6 @@ model = joblib.load('melhor_modelo.pkl')
 # Carregar o conjunto de dados de treinamento
 X_train = joblib.load('dados_treino.pkl')
 
-# Configuração do CORS
-CORS(app, origins="http://127.0.0.1:5500")
 
 # Preparar colunas para transformação
 num_cols_for_transform = ['idade', 'hipertensao', 'doenca_cardiaca', 'nivel_glicose', 'imc']
@@ -40,7 +38,7 @@ preprocessor = ColumnTransformer(
     ]
 )
 
-@app.route('/predict', methods=['POST'])
+@app.get('/predict', methods=['POST'])
 def predict():
     # Verificar se o tipo de conteúdo é JSON
     if request.content_type != 'application/json':
