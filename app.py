@@ -38,7 +38,7 @@ preprocessor = ColumnTransformer(
     ]
 )
 
-@app.get('/predict', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     # Verificar se o tipo de conteúdo é JSON
     if request.content_type != 'application/json':
