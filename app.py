@@ -10,6 +10,8 @@ from sklearn.compose import ColumnTransformer
 
 app = Flask(__name__)
 
+CORS(app)  # Habilitar CORS para todas as rotas
+
 # Configuração de logging
 logging.basicConfig(level=logging.INFO)
 
